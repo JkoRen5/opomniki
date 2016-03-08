@@ -20,7 +20,14 @@ window.addEventListener('load', function() {
 			//TODO: 
 			// - če je čas enak 0, izpiši opozorilo "Opomnik!\n\nZadolžitev NAZIV_OPOMNIK je potekla!"
 			// - sicer zmanjšaj čas za 1 in nastavi novo vrednost v časovniku
-			
+			if (cas == 0){
+				alert("Opomnik!\n\nZadolžitev " + opomnik.getElementsByClassName('naziv_opomnika')[0].innerHTML + " je potekla!");
+				
+				opomnik.parentElement.removeChild(opomnik);
+			} else {
+				cas--;
+				opomnik.querySelector("span").innerHTML = cas;
+			}
 		}
 	}
 	setInterval(posodobiOpomnike, 1000);
@@ -29,9 +36,9 @@ window.addEventListener('load', function() {
 		console.log("derp");
 		var time = document.querySelector("#cas_opomnika").value;
 		var name = document.querySelector("#naziv_opomnika").value;
-		document.querySelector("#cas_opomnika").innerHTML= "";
-		document.querySelector("#naziv_opomnika").innerHTML = "";
-		var element = "<div class='opomnik'><div class='naziv_opomnika'>"+name+"</div><div class='cas_opomnika'> Opomnik čez <span>"+time+"</span> sekund.</div></div>";
+		document.querySelector("#cas_opomnika").value= "";
+		document.querySelector("#naziv_opomnika").value = "";
+		var element = "<div class='opomnik senca rob'><div class='naziv_opomnika'>"+name+"</div><div class='cas_opomnika'> Opomnik čez <span>"+time+"</span> sekund.</div></div>";
 		document.querySelector("#opomniki").innerHTML+=element;
 		
 	}
