@@ -3,7 +3,7 @@ window.addEventListener('load', function() {
 	
 	var prijavi = function(event) {
 		var user = document.querySelector("#uporabnisko_ime").value;
-		document.querySelector("#uporabnik").value = user;
+		document.querySelector("#uporabnik").innerHTML = user;
 		document.querySelector(".pokrivalo").style.display="none";
 	}
 	document.querySelector("#prijavniGumb").addEventListener('click',prijavi);
@@ -25,4 +25,15 @@ window.addEventListener('load', function() {
 	}
 	setInterval(posodobiOpomnike, 1000);
 	
+	var dodajOpomnik = function(event) {
+		console.log("derp");
+		var time = document.querySelector("#cas_opomnika").value;
+		var name = document.querySelector("#naziv_opomnika").value;
+		document.querySelector("#cas_opomnika").innerHTML= "";
+		document.querySelector("#naziv_opomnika").innerHTML = "";
+		var element = "<div class='opomnik'><div class='naziv_opomnika'>"+name+"</div><div class='cas_opomnika'> Opomnik čez <span>"+time+"</span> sekund.</div></div>";
+		document.querySelector("#opomniki").innerHTML+=element;
+		
+	}
+	document.querySelector("#dodajGumb").addEventListener('click',dodajOpomnik);
 });
