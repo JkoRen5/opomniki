@@ -1,5 +1,12 @@
 window.addEventListener('load', function() {
 	//stran nalozena
+	
+	var prijavi = function(event) {
+		var user = document.querySelector("#uporabnisko_ime").value;
+		document.querySelector("#uporabnik").value = user;
+		document.querySelector(".pokrivalo").style.display="none";
+	}
+	document.querySelector("#prijavniGumb").addEventListener('click',prijavi);
 		
 	//Posodobi opomnike
 	var posodobiOpomnike = function() {
@@ -13,6 +20,7 @@ window.addEventListener('load', function() {
 			//TODO: 
 			// - če je čas enak 0, izpiši opozorilo "Opomnik!\n\nZadolžitev NAZIV_OPOMNIK je potekla!"
 			// - sicer zmanjšaj čas za 1 in nastavi novo vrednost v časovniku
+			
 		}
 	}
 	setInterval(posodobiOpomnike, 1000);
